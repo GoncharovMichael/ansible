@@ -1,0 +1,8 @@
+---
+- name: Install and configure fail2ban
+  hosts: all
+  become: yes
+
+  roles:
+    - fail2ban_master
+...

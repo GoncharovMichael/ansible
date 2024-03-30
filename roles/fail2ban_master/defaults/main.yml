@@ -1,0 +1,5 @@
+---
+# defaults file for fail2ban_master
+path_file: ~/fail2ban/roles/fail2ban_master/files/jail.local
+dest: /etc/fail2ban/jail.local
+...
