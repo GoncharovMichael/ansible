@@ -1,0 +1,5 @@
+- name: Install fail2ban
+  become: yes
+  yum:
+    name: fail2ban
+    state: present

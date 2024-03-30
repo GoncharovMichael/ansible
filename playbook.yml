@@ -1,7 +1,19 @@
 ---
 - name: Install and configure fail2ban
   hosts: all
-  become: yes
+
+    # переменные вынесены сюда для удобства.
+  vars:
+    m_bantime: 1m
+    m_findtime: 6m
+    m_maxretry: 4
+
+    ssh_bantime_increment: true
+    ssh_bantime_factor: 1
+    ssh_bantime_maxtime: 10m
+
+    rez_enabled: true
+    rez_bantime: -1
 
   roles:
     - fail2ban_master

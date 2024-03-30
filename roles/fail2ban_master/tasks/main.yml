@@ -1,34 +1,27 @@
 ---
 # tasks file for fail2ban_master
-- block: # ==== for ubuntu ==== #
-  - name: update
-    apt:
-      update_cache: yes
-  - name: Install fail2ban
-    apt:
-      name: fail2ban
-      state: present
-  when: ansible_os_family == 'Debian'
+- name: Include OS specific tasks for fail2ban
+  include_tasks: "{{ ansible_os_family }}.yml"
 
-- block: # ==== for CentOs ==== #
-  - name: update yum
-    yum:
-      update_cache: yes
-  - name: Install fail2ban
-    yum:
-      name: fail2ban
-      state: present
-  when: ansible_os_family == 'RedHat'
+- name: kmow state0 of fail2ban
+  command: systemctl status fail2ban
+  register: print
+  failed_when: print.rc == 44
 
 - name: copy file
-  copy: src={{ path_file }} dest={{ dest }} mode=0555
-  notify: start fail2ban
+  become: yes
+  template: src={{ path_file }}/jail.local.j2 dest={{ dest }}/jail.local mode=0555
+
+- name: start fail2ban
+  become: yes
+  service:
+    name: fail2ban
+    state: started
+    enabled: yes
 
 - name: kmow state of fail2ban
-  shell: systemctl status fail2ban | grep -i "active:"
+  command: systemctl status fail2ban
   register: print
-
-- name: print state of fail2ban
-  debug:
-    var: print.stdout
+  ignore_errors: True
+  notify: print state of fail2ban
 ...
