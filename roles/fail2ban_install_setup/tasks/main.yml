@@ -3,18 +3,6 @@
 - name: Include OS specific tasks for fail2ban
   include_tasks: "{{ ansible_os_family }}.yml"
 
-- name: kmow state0 of fail2ban
-  command: systemctl status fail2ban
-  register: print
-  failed_when: print.rc == 44
-
-- name: copy file
-  become: yes
-  template: 
-    src: roles/fail2ban_install_setup/templates/jail.local.j2
-    dest: /etc/fail2ban/jail.local
-    mode: 0555
-
 - name: start fail2ban
   become: yes
   service:
@@ -22,9 +10,12 @@
     state: started
     enabled: yes
 
-- name: kmow state of fail2ban
-  command: systemctl status fail2ban
-  register: print
-  ignore_errors: True
-  notify: print state of fail2ban
+- name: copy file
+  become: yes
+  template: 
+    src: roles/fail2ban_install_setup/templates/jail.local.j2
+    dest: /etc/fail2ban/jail.local
+    mode: 0555
+  notify: Reload fail2ban service
+
 ...

@@ -1,8 +1,10 @@
 ---
 # handlers file for fail2ban_master
 
-- name: print state of fail2ban
-  debug:
-    msg: "Fail2ban status changed to {{ print.stdout }}"
-      #  when: print.stdout == "active"
+- name: Reload fail2ban service
+  become: yes
+  service:
+    name: fail2ban
+    state: reloaded
+
 ...
