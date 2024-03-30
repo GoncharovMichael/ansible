@@ -16,5 +16,5 @@
     rez_bantime: -1
 
   roles:
-    - fail2ban_master
+    - fail2ban_install_setup
 ...

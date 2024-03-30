@@ -10,7 +10,10 @@
 
 - name: copy file
   become: yes
-  template: src={{ path_file }}/jail.local.j2 dest={{ dest }}/jail.local mode=0555
+  template: 
+    src: roles/fail2ban_install_setup/templates/jail.local.j2
+    dest: /etc/fail2ban/jail.local
+    mode: 0555
 
 - name: start fail2ban
   become: yes

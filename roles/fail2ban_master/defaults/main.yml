@@ -1,5 +1,0 @@
----
-# defaults file for fail2ban_master
-path_file: roles/fail2ban_master/templates/
-dest: /etc/fail2ban/
-...
