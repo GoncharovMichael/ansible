@@ -1,4 +1,3 @@
 ---
-ansible_user                 : m
 ansible_password: 2
 ...
