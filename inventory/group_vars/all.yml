@@ -1,12 +1,12 @@
 ---
-  m_bantime: 1m
-  m_findtime: 6m
-  m_maxretry: 3
+m_bantime: 1m
+m_findtime: 6m
+m_maxretry: 3
 
-  ssh_bantime_increment: true
-  ssh_bantime_factor: 1
-  ssh_bantime_maxtime: 10m
+ssh_bantime_increment: true
+ssh_bantime_factor: 1
+ssh_bantime_maxtime: 10m
 
-  rez_enabled: true
-  rez_bantime: -1
+rez_enabled: true
+rez_bantime: -1
 ...
