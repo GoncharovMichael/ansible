@@ -13,7 +13,7 @@
 - name: copy file
   become: yes
   template: 
-    src: roles/fail2ban_install_setup/templates/jail.local.j2
+    src: templates/jail.local.j2
     dest: /etc/fail2ban/jail.local
     mode: 0555
   notify: Reload fail2ban service

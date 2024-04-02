@@ -2,6 +2,5 @@
 roles:
   - src: https://github.com/GoncharovMichael/ansible.git
     scm: git
-    version: fail2ban_install_setup
-    branch: develop
+    version: develop
 ...
