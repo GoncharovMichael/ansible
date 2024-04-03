@@ -1,5 +1,4 @@
 ---
-# tasks file for fail2ban_master
 - name: Include OS specific tasks for fail2ban
   include_tasks: "{{ ansible_os_family }}.yml"
 
