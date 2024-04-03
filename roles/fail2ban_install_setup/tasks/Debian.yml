@@ -5,4 +5,5 @@
     update_cache: yes
     name: fail2ban={{ fail2ban_version }}
     state: present
+      # become_password: "{{ ansible_password }}"
 ...
