@@ -3,5 +3,5 @@
   hosts: all
 
   roles:
-    - fail2ban_install_setup
+    - fail2ban
 ...

@@ -15,5 +15,5 @@ galaxy_info:
     - install_fail2ban
     - setup_fail2ban
   dependencies:
-    - fail2ban_install_setup
+    - fail2ban
 
