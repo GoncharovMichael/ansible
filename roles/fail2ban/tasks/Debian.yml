@@ -1,0 +1,8 @@
+---
+- name: update and install fail2ban
+  become: yes
+  apt:
+    update_cache: yes
+    name: fail2ban={{ fail2ban_version }}
+    state: present
+...

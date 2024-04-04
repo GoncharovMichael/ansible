@@ -1,0 +1,19 @@
+galaxy_info:
+  author: Goncharov Michael
+  description: Install and setup the fail2ban on any computers
+  company: myself
+  min_ansible_version: 2.16.4
+  platforms:
+    - name: ubuntu
+      versions:
+        - 22.04
+    - name: centos
+      versions:
+        - 7.9.2009
+  galaxy_tags:
+    - fail2ban
+    - install_fail2ban
+    - setup_fail2ban
+  dependencies:
+    - fail2ban
+

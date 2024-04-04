@@ -1,0 +1,21 @@
+[DEFAULT]
+
+bantime = {{ m_bantime }}
+findtime = {{ m_findtime }}
+maxretry = {{ m_maxretry }}
+
+[sshd]
+enabled = true
+port = ssh
+bantime.increment = {{ ssh_bantime_increment }}
+bantime.factor = {{ ssh_bantime_factor }}
+bantime.maxtime = {{ ssh_bantime_maxtime }}
+action = iptables[name=sshd]
+logpath = /var/log/auth.log
+
+
+{% if rez_enabled is true %}
+[recidive]
+enabled = {{ rez_enabled }}
+bantime = {{ rez_bantime }}
+{% endif %}

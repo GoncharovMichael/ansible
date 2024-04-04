@@ -1,0 +1,20 @@
+---
+- name: Include OS specific tasks for fail2ban
+  include_tasks: "{{ ansible_os_family }}.yml"
+
+- name: start fail2ban
+  become: yes
+  service:
+    name: fail2ban
+    state: started
+    enabled: yes
+
+- name: copy file
+  become: yes
+  template: 
+    src: templates/jail.local.j2
+    dest: /etc/fail2ban/jail.local
+    mode: 0555
+  notify: Reload fail2ban service
+
+...

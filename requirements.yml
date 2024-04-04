@@ -1,0 +1,6 @@
+---
+roles:
+  - src: https://github.com/GoncharovMichael/fail2ban.git
+    scm: git
+    version: devops
+...

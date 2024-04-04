@@ -1,0 +1,5 @@
+- name: Install fail2ban
+  become: yes
+  ansible.builtin.yum:
+    name: fail2ban=={{ fail2ban_version }}
+    state: present
